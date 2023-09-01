@@ -91,12 +91,16 @@ return packer.startup(function(use)
   use "moll/vim-bbye"
 
   --nvim-tree
-  use "kyazdani42/nvim-tree.lua"
+  use "nvim-tree/nvim-tree.lua"
 
   --toggleterm
   use {"akinsho/toggleterm.nvim", tag = '*', config = function()
   require("toggleterm").setup()
   end}
+
+  -- surround - add, delete, and change surroundings
+  use("tpope/vim-surround") -- add, delete, change surroundings (it's awesome)
+  use("inkarkat/vim-ReplaceWithRegister") -- replace with register contents using motion (gr + motion)
 
   --treesitter
   -- use {
@@ -148,7 +152,10 @@ return packer.startup(function(use)
       config = function() require("leap").set_default_keymaps() end}
   -- dap --
   use {"mfussenegger/nvim-dap"}
-  use {"mfussenegger/nvim-dap-python"}
+  use {"mfussenegger/nvim-dap-python",
+        requires = {"mfussenegger/nvim-dap"}
+    }
+
   -- use {"mfussenegger/nvim-dap-python",
   --     ft="python",
   --     dependencies={
