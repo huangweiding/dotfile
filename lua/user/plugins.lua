@@ -46,7 +46,8 @@ return packer.startup(function(use)
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
 
   -- Colorschemes
-  use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
+  -- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
+  use("bluz71/vim-nightfly-guicolors") -- preferred colorscheme
   -- use "lunarvim/darkplus.nvim"
 
   -- cmp plugins
@@ -84,6 +85,7 @@ return packer.startup(function(use)
       -- or                            , branch = '0.1.x',
       requires = { {'nvim-lua/plenary.nvim'}, {"nvim-telescope/telescope-live-grep-args.nvim"}},
       }
+  use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" }) -- dependency for better sorting performance
 
   -- bufferline
   use {'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons'}
@@ -91,14 +93,18 @@ return packer.startup(function(use)
   use "moll/vim-bbye"
 
   --nvim-tree
-  use "nvim-tree/nvim-tree.lua"
-
+  use {
+    'nvim-tree/nvim-tree.lua',
+    requires = {
+      'nvim-tree/nvim-web-devicons', -- optional
+    },
+  }
   --toggleterm
   use {"akinsho/toggleterm.nvim", tag = '*', config = function()
   require("toggleterm").setup()
   end}
 
-  -- surround - add, delete, and change surroundings
+  -- -- surround - add, delete, and change surroundings
   use("tpope/vim-surround") -- add, delete, change surroundings (it's awesome)
   use("inkarkat/vim-ReplaceWithRegister") -- replace with register contents using motion (gr + motion)
 
@@ -118,14 +124,13 @@ return packer.startup(function(use)
   -- treesitter context always show function name on top
   use {
     "nvim-treesitter/nvim-treesitter-context"
-
-
   }
 
   -- Autopair --
   use "windwp/nvim-autopairs"
 
-
+  -- tmux and split window navigation
+  -- use("christoomey/vim-tmux-navigator")
   -- Easy Comment --
   use {
     'numToStr/Comment.nvim',

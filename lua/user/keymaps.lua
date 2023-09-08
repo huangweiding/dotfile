@@ -84,5 +84,5 @@ vim.opt.path:append '**'
 -- DAP ShortCut --
 keymap ('n', "<leader>db", ":DapToggleBreakpoint<cr>", opts)
 keymap('n', "<leader>dbr",":DapContinue<cr>", opts)
-keymap('n', "<leader>so", ":DapStepOver<cr>", opts)
-keymap('n', "<leader>si", ":DapStepInto<cr>", opts)
+keymap('n', "<leader>F5", ":DapStepOver<cr>", opts)
+keymap('n', "<leader>F10", ":DapStepInto<cr>", opts)
