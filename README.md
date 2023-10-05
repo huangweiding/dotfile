@@ -1,1 +1,2 @@
-try to create a conflict
+I want to have a conflict
+here is another conflict
